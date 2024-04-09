@@ -1,0 +1,246 @@
+@keyframes slideIn{
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slideOut {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes gone{
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+@keyframes float {
+    0% {
+	transform: translatey(0px);
+    }
+    50% {
+	transform: translatey(-20px);
+    }
+    100% {
+	transform: translatey(0px);
+    }
+}
+@keyframes rotate{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes handwrite {
+    0% {
+        stroke-dashoffset: 3007;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }    
+}
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-color: #102D29;
+}
+body {
+    color: #E7E3D8;
+    display: flex;
+    flex-direction: column;
+}
+.navBar {
+    margin-top: 3%;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    display: flex;
+    animation: gone 5s;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2000;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .navBar {
+        margin-top: 7%;
+    }
+}
+#navItems{
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.56); 
+    backdrop-filter: blur(10px);
+    animation: slideIn 1.5s;
+}
+.slideOut {
+  animation: slideOut 1.5s;
+}
+.navContainer {
+    text-align: center;
+    max-width: 300px;
+    padding: 50px;
+    position: relative;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display:flex;
+    flex-direction: column;
+}
+.navContainer a{
+    font-family: "eloquent-jf-pro", serif;
+    font-weight: 400;
+    display:flex;
+    width: 50%;
+    font-style: italic;
+    font-size: 2vw;
+    color: #f5e3cd;
+    text-decoration: none;
+    margin-bottom: 3%;
+    animation: gone 5s;
+}
+.menuButton{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: transform 0.5s ease; 
+}
+.menuButton:hover .circles{
+    r: 7; 
+}
+.menuButton:hover #middle{
+    r: 3; 
+}
+.menuButton:hover .corners{
+    r: 0; 
+}
+.circles, .corners{
+    transition: r 0.3s ease;
+    stroke: #f5e3cd;
+    fill: transparent;
+}
+#giullyavitoria {
+    margin-top: 15%;
+    width: 40vw;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    stroke-dasharray: 3007;
+    animation: handwrite 17s linear;
+}
+@media (max-width: 700px) {
+    .title {
+        width: 100vw;
+        margin-top: 7%;
+    }
+}
+.homeButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 3%;
+    z-index: 2;
+}
+.homeButtons > a {
+    font-family: "eloquent-jf-pro", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color: #E7E3D8;
+    background-color: transparent;
+    padding: 9px;
+    border: none;
+    margin-bottom: 90px;
+    text-decoration: none;
+}
+.underlineAnimation{
+    display: inline-block;
+    position: relative;
+    color: black;
+} 
+.underlineAnimation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #E7E3D8;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+} 
+.underlineAnimation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.home {  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #102D29;
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh;
+}
+.aboutMe {
+  background-color: #E7E3D8;    
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh; /* Adjust height as needed */
+
+}
+.profilePicture {
+  min-width: 200px;
+  min-height: 200px;
+  top: 0;
+  border-radius: 50%;
+  background: #102D29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 100px; /* Adjust as needed */
+}
+.aboutMeDescription{
+
+
+}
+
+.myProjects {
+    background-color: #102D29;
+    height: 100vh; 
+
+
+}
+.contact {
+    background-color: #E7E3D8;
+    height: 100vh; 
+
+}
