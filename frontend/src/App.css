@@ -9,10 +9,10 @@
   flex-direction: column; /* Ensure the layout follows a column structure */
 }
 
-.switch {
+.navBar {
   text-align: center;
   padding: 1rem 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   display: flex;
@@ -183,18 +183,29 @@
 }
 
 @keyframes handwrite {
-  0% {
-    stroke-dashoffset: 3007;
-    fill: none;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    fill: var(--accent-color);
-  }    
+    0% {
+        stroke-dashoffset: 3007;
+        fill: none;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: var(--accent-color);
+    }    
 }
 
 #giullyaVitoria {
   transition: color 500ms ease;
-  stroke-dasharray: 3007;
-  animation: handwrite 17s linear forwards;
+    stroke-dasharray: 3007;
+    animation: handwrite 17s linear forwards;
+}
+
+.rightSide{
+
+
+}
+
+.leftiSide{
+
+
+
 }
