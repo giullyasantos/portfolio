@@ -39,9 +39,8 @@
 
 .section {
   font-family: "amandine";
-  height: calc(100vh - 11rem);
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
+  height: 100vh;
+  border-bottom: 1px solid var(--accent-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +48,7 @@
 }
 
 #projects, #about, #contact {
-  margin-top: 10rem;
+  margin-top: 2rem;
 }
 
 #contact {
@@ -64,16 +63,17 @@
   color: red;
 }
 
-.light-mode {
+.lightMode {
   background-color: #F0F8FF;
   color: #002147;
-  accent-color: #00A6A6;
+  --accent-color: #00A6A6;
 }
 
-.dark-mode {
+.darkMode {
   background-color: #002147;
   color: #F0F8FF;
-  accent-color: #D4AF37;
+  --accent-color: #D4AF37;
+  --accent-color2: #778899
 }
 
 .sidebar button {
@@ -135,131 +135,66 @@
   transform: scale(1) rotate(360deg);
 }
 
-.card {
-  overflow: visible;
+.projects{
+  display:flex;
+  gap: 2vw;
+}
+
+.project {
   width: 190px;
   height: 254px;
+  border-radius: 0;
+  transition: 400ms;
+  background: inherit;
 }
 
-.cardContent {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 300ms;
-  box-shadow: 0px 0px 10px 1px #000000ee;
-  border-radius: 5px;
+.lightMode .project, .lightMode .myPicture {
+  box-shadow: 15px 15px 30px #F0F8FF, -15px -15px 30px #d8dfe5;
 }
 
-.cardFront, .cardBack {
-  background-color: #151515;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 5px;
-  overflow: hidden;
+.darkMode .project, .darkMode .myPicture {
+  box-shadow: 15px 15px 30px #002147, -15px -15px 30px #00132a;
 }
 
-.cardBack {
-  width: 100%;
-  height: 100%;
-  justify-content: center;
+.projects .project:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.projects:hover > .project:not(:hover) {
+  opacity: 30%;
+  transform: scale(0.95, 0.95);
+}
+
+.homeSection {
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  flex-direction: row;
 }
 
-.cardBack::before {
-  position: absolute;
-  content: ' ';
-  display: block;
-  width: 160px;
-  height: 160%;
-  background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
-  animation: rotation_481 5000ms infinite linear;
+#about, #contact{
+  background-color: var(--accent-color);
 }
 
-.cardBackContent {
-  position: absolute;
-  width: 99%;
-  height: 99%;
-  background-color: #151515;
-  border-radius: 5px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+.myPicture {
+  background-color: inherit;
+  padding: 2rem;
+  width: 25rem;
+  border-radius: 50%;
+  transition: box-shadow 500ms ease;
 }
 
-.card:hover .cardContent {
-  transform: rotateY(180deg);
-}
-
-@keyframes rotation_481 {
+@keyframes handwrite {
   0% {
-    transform: rotateZ(0deg);
+    stroke-dashoffset: 3007;
+    fill: none;
   }
-
-  0% {
-    transform: rotateZ(360deg);
-  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: var(--accent-color);
+  }    
 }
 
-.cardFront {
-  transform: rotateY(180deg);
-  color: white;
+#giullyaVitoria {
+  transition: color 500ms ease;
+  stroke-dasharray: 3007;
+  animation: handwrite 17s linear forwards;
 }
-
-.cardFront .cardFrontContent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cardDescription {
-  box-shadow: 0px 0px 10px 5px #00000088;
-  width: 100%;
-  padding: 10px;
-  background-color: #00000099;
-  backdrop-filter: blur(5px);
-  border-radius: 5px;
-}
-
-.cardTitle {
-  font-size: 11px;
-  max-width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.cardTitle p {
-  width: 50%;
-}
-
-.cardFooter {
-  color: #ffffff88;
-  margin-top: 5px;
-  font-size: 8px;
-}
-
-.cardFront .cardImg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.projectsCards {
-  margin-top: 6vh;
-  display: flex;
-  gap: 3vw;
-}
-
