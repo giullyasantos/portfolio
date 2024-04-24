@@ -23,7 +23,7 @@
 .sidebar {
   width: 150px;
   position: fixed;
-  top: 15rem;
+  top: 18rem;
   height: calc(100vh - 4rem);
   overflow: hidden;
   display: flex;
@@ -32,23 +32,40 @@
   z-index: 10;
 }
 
+.sidebar .sidebarLine button  {
+  background-color: var(--color);
+  border: 1px solid var(--background-color);
+  height: 1vw;
+  width: 1vw;
+  transition: transform 0.3s ease;
+}
+
+.sidebar .sidebarLine button:hover {
+  transform: rotate(45deg);
+}
+
+.sidebar .sidebarLine button.active  {
+  transform: rotate(45deg) scale(0.95, 0.95);
+  background-color: var(--accent-color);
+  border: 1px solid var(--background-color);
+}
+
 .sectionContent {
-  padding: 5rem 20px 20px 20px; /* Adjust padding-top as needed */
+  padding: 5rem 20px 20px 20px; 
   position: relative;
 }
 
 .section {
   font-family: "amandine";
-  height: 100vh;
-  border-bottom: 1px solid var(--accent-color);
+  height: 110vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#projects, #about, #contact {
-  margin-top: 2rem;
+.section h1{
+  font-size: 90px;
 }
 
 #contact {
@@ -59,30 +76,28 @@
   transition: background-color 500ms ease, color 500ms ease;
 }
 
-.active {
-  color: red;
-}
-
-.lightMode {
-  background-color: #F0F8FF;
-  color: #002147;
+.lightMode  {
+  background-color: #ece7e1;
+  --background-color: #ece7e1;
+  color: #1a1818;
+  --color:#1a1818;
   --accent-color: #00A6A6;
 }
 
 .darkMode {
-  background-color: #002147;
-  color: #F0F8FF;
+  background-color: #1a1818;
+  --background-color: #1a1818;
+  color: #ece7e1;
+  --color: #ece7e1;
   --accent-color: #D4AF37;
-  --accent-color2: #778899
 }
 
 .sidebar button {
   transition: color 0.3s ease;
   display: block;
   margin: 10px 0;
-  background-color: transparent;
+  background-color: inherit;
 }
-
 
 .footer {
   font-family: "amandine";
@@ -90,7 +105,7 @@
   text-align: center;   
   padding: 1rem 0;           
   bottom: 0;             
-  width: 100%;          
+  width: 100%;  
 }
 
 .toggle {
@@ -135,29 +150,53 @@
   transform: scale(1) rotate(360deg);
 }
 
-.projects{
+#projects {
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+}
+
+.projects {
+  max-height: 80vh;
   display:flex;
+  flex-direction: column;
   gap: 2vw;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateY(0); /* Start position */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%); /* End position */
+    opacity: 0;
+  }
+}
+
 .project {
-  width: 190px;
-  height: 254px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  width: 500px;
   border-radius: 0;
   transition: 400ms;
-  background: inherit;
+  background-color: inherit;
+  color: currentColor;
 }
 
-.lightMode .project, .lightMode .myPicture {
-  box-shadow: 15px 15px 30px #F0F8FF, -15px -15px 30px #d8dfe5;
+.darkMode .project {
+  border: 0.1px outset rgba(236, 231, 225, 0.3);
 }
 
-.darkMode .project, .darkMode .myPicture {
-  box-shadow: 15px 15px 30px #002147, -15px -15px 30px #00132a;
+.lightMode .project {
+  border: 0.1px outset rgba(26,24,24,0.5);
 }
 
 .projects .project:hover {
-  transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);  
 }
 
 .projects:hover > .project:not(:hover) {
@@ -167,11 +206,12 @@
 
 .homeSection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #about, #contact{
   background-color: var(--accent-color);
+  color: var(--background-color);
 }
 
 .myPicture {
@@ -180,32 +220,4 @@
   width: 25rem;
   border-radius: 50%;
   transition: box-shadow 500ms ease;
-}
-
-@keyframes handwrite {
-    0% {
-        stroke-dashoffset: 3007;
-        fill: none;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        fill: var(--accent-color);
-    }    
-}
-
-#giullyaVitoria {
-  transition: color 500ms ease;
-    stroke-dasharray: 3007;
-    animation: handwrite 17s linear forwards;
-}
-
-.rightSide{
-
-
-}
-
-.leftiSide{
-
-
-
 }
