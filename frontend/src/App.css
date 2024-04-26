@@ -21,10 +21,10 @@
 }
 
 .sidebar {
-  width: 150px;
+  width: 10%;
   position: fixed;
-  top: 18rem;
-  height: calc(100vh - 4rem);
+  top: 40%;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -35,8 +35,8 @@
 .sidebar .sidebarLine button  {
   background-color: var(--color);
   border: 1px solid var(--color);
-  height: 1vw;
-  width: 1vw;
+  height: 20px;
+  width: 20px;
   transition: transform 0.3s ease;
 }
 
@@ -54,6 +54,7 @@
   font-family: "amandine";
   cursor: default;
   height: 110vh;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +62,7 @@
 }
 
 .section h1{
-  font-size: 90px;
+  font-size: 10vh;
 }
 
 #contact {
@@ -153,32 +154,37 @@
   max-height: 100vh;
   display:flex;
   flex-direction: row;
-  margin-top: 30px;
-  gap: 2vw;
 }
 
 .project {
   display: flex;
   flex-direction: column;
   padding-top: 10px;
-  max-width: 450px;
+  height: 50%;
+  width: 20vh;
   transition: 400ms;
   background-color: var(--background-color);
   color: currentColor;
-  justify-content: space-between;
-  border: none;
-
+  justify-content: end;
+  border: solid;
 }
 
 .projects .leftSide{
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects .rightSide{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .leftSide .project{
-  align-items: end;
+  align-items: center;
 }
 
 .projects .project:hover {
@@ -237,7 +243,7 @@
   content: "";
   position: absolute;
   left: 0;
-  height: 100%;
+  height: 200%;
   width: 100%;
   transition: 500ms ease;
   border-left: 2px solid var(--background-color);
