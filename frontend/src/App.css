@@ -10,13 +10,12 @@
 }
 
 .navBar {
-  text-align: center;
+  display: grid;        
+  place-items: center;
   padding: 1rem 0;
   position: fixed;
   top: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
   z-index: 10;
 }
 
@@ -70,6 +69,7 @@
 }
 
 .app, .section {
+  overflow: hidden;
   transition: background-color 500ms ease, color 500ms ease;
 }
 
@@ -222,7 +222,7 @@
 .dynamicText li{
   margin-left: 15px;
   list-style: none;
-  font-size: 40px;
+  font-size: 1.5vw;
   color: var(--color);
   top: 0;
   position: relative;
@@ -283,6 +283,7 @@
 }
 
 .outerCircle {
+  overflow: hidden;
   position: relative;  
 }
 
