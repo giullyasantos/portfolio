@@ -69,7 +69,7 @@ const App = () => {
   return (
     <div className={`app ${themeClass}`}>
     <div className= 'navBar'>
-           <label class='toggle' for='switch'>
+      <label class='toggle' for='switch'>
         <input onClick={toggleTheme} id='switch' className='input' type='checkbox'/>
         <div className='icon icon--moon'>
           <svg height='32' width='32' fill='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
@@ -86,7 +86,8 @@ const App = () => {
     <div className='sidebar'>
       <div className= 'sidebarLine'>
         <button onClick={() => handleNavigation('home')} className={currentSection === 'home' ? 'active' : ''}></button>
-        <button onClick={() => handleNavigation('about')} className={currentSection === 'about' ? 'active aboutActive' : ''}></button>
+        <button onClick={() => handleNavigation('about')} className={currentSection === 'about' ? 'active aboutActive' : ''}>
+        </button>
         <button onClick={() => handleNavigation('projects')} className={currentSection === 'projects' ? 'active' : ''}></button>
         <button onClick={() => handleNavigation('contact')} className={currentSection === 'contact' ? 'active contactActive' : ''}></button>
       </div>
@@ -164,8 +165,6 @@ const App = () => {
                 <img src={album} alt="hey"/>
                 <div>Image 1 Text</div>
               </div>
-
-
 
               <div className='slide'>
                 <img src={album} alt="hey"/>
